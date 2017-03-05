@@ -26,19 +26,67 @@ public class Moves {
         City prague = new City();
         Robot rob = new Robot(prague, 1, 0, Direction.SOUTH);
         Scanner lee= new Scanner(System.in);
-        int n[]= new int [4];
+        int n[]= new int [20];
         
-        System.out.println("Escriba los numeros ");
+        System.out.println("Escriba  numero de filas ");
+        int lim = lee.nextInt();
+        for(int i=0;i<lim;i++){
+            System.out.print("Número " + (i+1) +" = ");
+            n[i] = lee.nextInt();
+         
+            for(int k=0;k<n[i];k++){
+               Thing bola= new Thing (prague, i+2, 0);
+            }
+            
+        }
+        System.out.println("Presione Start");
+        rob.move();
+        rob.turnLeft();
         
-        n[0] = lee.nextInt();
-        n[1] = lee.nextInt();
-        n[2] = lee.nextInt();
-        n[3] = lee.nextInt();
+        System.out.println("Ingrese nuevamente los números");
+      for(int k=0;k<lim;k++){
+            
+            n[k] = lee.nextInt();
+     
+      
+        
+        for(int i=0;i<n[k]-1;i++){
+        rob.pickThing();
+        }
+    
+       
+       for(int i=0;i<n[k]-1;i++){
+       rob.move();
+       rob.putThing();
+       }
+ 
+      for(int i=0;i<3;i++)
+       {
+         rob.turnLeft();
+       }
+     
+      rob.move();
+       for(int i=0;i<3;i++)
+       {
+         rob.turnLeft();
+       }
+      for(int i=0;i<n[k]-1;i++){
+      rob.move();
+      }
+      for(int i=0;i<2;i++){
+          rob.turnLeft();
+      }
+      }
+     System.out.println(rob.countThingsInBackpack()); 
+      
+      
+        
+      
          
       
       
         
-         for(int i=0;i<n[0];i++){
+   /*      for(int i=0;i<n[0];i++){
            Thing bola= new Thing (prague, 2, 0);
        }
          for(int i=0;i<n[1];i++){
@@ -150,7 +198,7 @@ public class Moves {
       for(int i=0;i<2;i++){
           rob.turnLeft();
       }
-         System.out.println(rob.countThingsInBackpack());
+         System.out.println(rob.countThingsInBackpack()); */
     }
         
     }
